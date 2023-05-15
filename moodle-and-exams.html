@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Moodle and exams | R Tutorials - some notes</title>
+  <meta name="description" content="Some R tutorials or starting guides." />
+  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Moodle and exams | R Tutorials - some notes" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Some R tutorials or starting guides." />
+  <meta name="github-repo" content="jpcaveiro/r-tutorials" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Moodle and exams | R Tutorials - some notes" />
+  
+  <meta name="twitter:description" content="Some R tutorials or starting guides." />
+  
+
+<meta name="author" content="João Pedro Cruz" />
+
+
+<meta name="date" content="2023-05-15" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="exams.html"/>
+<link rel="next" href="Bookdown.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R Tutorials</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>1</b> R Markdown</a></li>
+<li class="chapter" data-level="2" data-path="exams.html"><a href="exams.html"><i class="fa fa-check"></i><b>2</b> Exams</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="exams.html"><a href="exams.html#concepts"><i class="fa fa-check"></i><b>2.1</b> Concepts</a></li>
+<li class="chapter" data-level="2.2" data-path="exams.html"><a href="exams.html#in-your-machine"><i class="fa fa-check"></i><b>2.2</b> In your machine</a></li>
+<li class="chapter" data-level="2.3" data-path="exams.html"><a href="exams.html#the-slow-development-cycle"><i class="fa fa-check"></i><b>2.3</b> The Slow Development Cycle</a></li>
+<li class="chapter" data-level="2.4" data-path="exams.html"><a href="exams.html#stackoverflow"><i class="fa fa-check"></i><b>2.4</b> stackoverflow</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="moodle-and-exams.html"><a href="moodle-and-exams.html"><i class="fa fa-check"></i><b>3</b> Moodle and exams</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="moodle-and-exams.html"><a href="moodle-and-exams.html#schoice"><i class="fa fa-check"></i><b>3.1</b> schoice</a></li>
+<li class="chapter" data-level="3.2" data-path="moodle-and-exams.html"><a href="moodle-and-exams.html#mchoice"><i class="fa fa-check"></i><b>3.2</b> mchoice</a></li>
+<li class="chapter" data-level="3.3" data-path="moodle-and-exams.html"><a href="moodle-and-exams.html#numerical"><i class="fa fa-check"></i><b>3.3</b> numerical</a></li>
+<li class="chapter" data-level="3.4" data-path="moodle-and-exams.html"><a href="moodle-and-exams.html#shortanswer"><i class="fa fa-check"></i><b>3.4</b> shortanswer</a></li>
+<li class="chapter" data-level="3.5" data-path="moodle-and-exams.html"><a href="moodle-and-exams.html#cloze-explicit-answerlist"><i class="fa fa-check"></i><b>3.5</b> cloze (explicit Answerlist)</a></li>
+<li class="chapter" data-level="3.6" data-path="moodle-and-exams.html"><a href="moodle-and-exams.html#cloze-calculated-answerlist-and-marks"><i class="fa fa-check"></i><b>3.6</b> cloze (calculated Answerlist and “##” marks)</a></li>
+<li class="chapter" data-level="3.7" data-path="moodle-and-exams.html"><a href="moodle-and-exams.html#special-moodle-instructions"><i class="fa fa-check"></i><b>3.7</b> special moodle instructions</a></li>
+<li class="chapter" data-level="3.8" data-path="moodle-and-exams.html"><a href="moodle-and-exams.html#restrictions-in-moodle-cloze"><i class="fa fa-check"></i><b>3.8</b> restrictions in moodle “cloze”</a></li>
+<li class="chapter" data-level="3.9" data-path="moodle-and-exams.html"><a href="moodle-and-exams.html#essayfile-question-type-in-moodle"><i class="fa fa-check"></i><b>3.9</b> essay/file question type in Moodle</a>
+<ul>
+<li class="chapter" data-level="3.9.1" data-path="moodle-and-exams.html"><a href="moodle-and-exams.html#essay-question"><i class="fa fa-check"></i><b>3.9.1</b> essay question</a></li>
+<li class="chapter" data-level="3.9.2" data-path="moodle-and-exams.html"><a href="moodle-and-exams.html#file-question"><i class="fa fa-check"></i><b>3.9.2</b> file question</a></li>
+<li class="chapter" data-level="3.9.3" data-path="moodle-and-exams.html"><a href="moodle-and-exams.html#both-file-and-essay"><i class="fa fa-check"></i><b>3.9.3</b> both file and essay</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="Bookdown.html"><a href="Bookdown.html"><i class="fa fa-check"></i><b>4</b> Bookdown</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="Bookdown.html"><a href="Bookdown.html#first-steps-and-concepts"><i class="fa fa-check"></i><b>4.1</b> First steps and concepts</a></li>
+<li class="chapter" data-level="4.2" data-path="Bookdown.html"><a href="Bookdown.html#bookdown-examples"><i class="fa fa-check"></i><b>4.2</b> bookdown examples</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="Bookdown.html"><a href="Bookdown.html#introduction"><i class="fa fa-check"></i><b>4.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2.2" data-path="Bookdown.html"><a href="Bookdown.html#methods"><i class="fa fa-check"></i><b>4.2.2</b> Methods</a></li>
+<li class="chapter" data-level="4.2.3" data-path="Bookdown.html"><a href="Bookdown.html#math-example"><i class="fa fa-check"></i><b>4.2.3</b> math example</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="git.html"><a href="git.html"><i class="fa fa-check"></i><b>5</b> Git</a></li>
+<li class="chapter" data-level="6" data-path="to-do-list.html"><a href="to-do-list.html"><i class="fa fa-check"></i><b>6</b> To do list</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://sweet.ua.pt/pedrocruz/" target="blank">João P. Cruz</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Tutorials - some notes</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="moodle-and-exams" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Moodle and exams<a href="moodle-and-exams.html#moodle-and-exams" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<pre><code>## Loading required package: exams</code></pre>
+<pre><code>## Warning: package &#39;exams&#39; was built under R version 4.2.3</code></pre>
+<p>Moodle <em>standard</em> question types:</p>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" />
+2.1 Calculated</li>
+<li><input type="checkbox" disabled="" />
+2.2 Calculated multi-choice</li>
+<li><input type="checkbox" disabled="" />
+2.3 Calculated simple</li>
+<li><input type="checkbox" disabled="" />
+2.4 Drag and drop into text</li>
+<li><input type="checkbox" disabled="" />
+2.5 Drag and drop markers</li>
+<li><input type="checkbox" disabled="" />
+2.6 Drag and drop onto image</li>
+<li><input type="checkbox" disabled="" />
+2.7 Description</li>
+<li><input type="checkbox" disabled="" checked="" />
+2.8 Essay</li>
+<li><input type="checkbox" disabled="" />
+2.9 Matching</li>
+<li><input type="checkbox" disabled="" checked="" />
+2.10 Embedded Answers (Cloze Test / Gap Fill)</li>
+<li><input type="checkbox" disabled="" checked="" />
+2.11 Multiple choice</li>
+<li><input type="checkbox" disabled="" checked="" />
+2.12 Short Answer</li>
+<li><input type="checkbox" disabled="" checked="" />
+2.13 Numerical</li>
+<li><input type="checkbox" disabled="" />
+2.14 Random short-answer matching</li>
+<li><input type="checkbox" disabled="" />
+2.15 Select missing words</li>
+<li><input type="checkbox" disabled="" checked="" />
+2.16 True/False</li>
+<li><input type="checkbox" disabled="" checked="" />
+File (essay that only requests a file from the participant)</li>
+</ul>
+<p><img src="images/paste-A0592789.png" /> package <code>exams</code> can produce output to moodle</p>
+<p><em>References</em></p>
+<ul>
+<li><a href="https://docs.moodle.org/402/en/Question_types">Question Types</a></li>
+<li><a href="https://www.r-exams.org/intro/dynamic/">Dynamic Exercises</a></li>
+</ul>
+<div id="schoice" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> schoice<a href="moodle-and-exams.html#schoice" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>View example <a href="https://www.r-exams.org/templates/swisscapital/">swisscapital: Knowledge Quiz Question about the Swiss Capital</a>.</p>
+<p><em>Single Choice</em> means only one sentence is correct.</p>
+<pre><code>Meta-information
+================
+exname: Swiss Capital
+extype: schoice
+exsolution: 0100000
+exshuffle: 5</code></pre>
+<ul>
+<li><code>exname: Swiss Capital</code> (exercise: where <code>exname</code> is used?)</li>
+<li><code>extype: schoice</code> – Single Choice question type</li>
+<li><code>exsolution: 0100000</code> – only second item is correct</li>
+<li><code>exshuffle: 5</code> – <code>exshuffle</code> is set to 5 so that 1 correct and 4 random wrong alternatives are subsampled and shuffled.</li>
+</ul>
+<p>The exercise filename, <code>swisscapital.Rmd</code>, is used in moodle xml file to identify the question in <strong>Moodle Category catalog</strong>:</p>
+<ul>
+<li><code>&lt;text&gt; R1 Q2 : swisscapital &lt;/text&gt;</code> (excert from moodle xml file)</li>
+</ul>
+<p><em>working example</em></p>
+<pre><code># setwd(&quot;~/&lt;root of r-exams project&gt;&quot;)
+library(&quot;exams&quot;)
+set.seed(2023-05-16) # or 2002
+exams2html(&quot;exercises/swisscapital.Rmd&quot;, 
+           n = 1, 
+           name = &quot;r-exams-tutorial&quot;,
+           edir=&quot;exercises&quot;)
+   ##omitt parameter  dir=&quot;output&quot; to open the browser
+
+
+
+# setwd(&quot;~/&lt;root of r-exams project&gt;&quot;)
+library(&quot;exams&quot;)
+set.seed(2023-05-16)
+exams2moodle(&quot;exercises/swisscapital.Rmd&quot;, 
+             n = 1, 
+             name = &quot;r-exams-tutorial&quot;,
+             edir=&quot;exercises&quot;,
+             dir=&quot;output&quot;)
+  ## This yields the file R-exams.xml that can be imported into Moodle.</code></pre>
+</div>
+<div id="mchoice" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> mchoice<a href="moodle-and-exams.html#mchoice" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><em>Multiple Choice</em> one or more correct.</p>
+<p>Danger: students will always earn points if turn on/off every option.</p>
+<p>View example: <a href="https://www.r-exams.org/templates/ttest/">ttest: Interpretation of 2-Sample t Test</a></p>
+<pre><code>Meta-information
+================
+extype: mchoice
+exsolution:  r mchoice2string(solutions) 
+exname: 2-sample t-test</code></pre>
+<ul>
+<li><code>extype: mchoice</code> – Multiple Choice question type</li>
+<li><code>exsolution:  r mchoice2string(solutions)</code></li>
+<li><code>exname</code>: 2-sample t-test (exercise: where <code>exname</code> is used?)</li>
+</ul>
+<p>Variable <code>solutions</code> is a vector like <code>c(T,T,F,F,T)</code> indicating which sentences are true. The vector can be explicitly described or calculated.</p>
+<p>What does <code>exams::mchoice2string</code>?</p>
+<pre><code>&gt; mchoice2string(c(T,T,F,F))
+[1] &quot;1100&quot;</code></pre>
+<p><em>working example</em></p>
+<pre><code># setwd(&quot;~/&lt;root of r-exams project&gt;&quot;)
+library(&quot;exams&quot;)
+set.seed(2023-05-16) # or 2002
+exams2html(&quot;exercises/ttest.Rmd&quot;, 
+           name = &quot;r-exams-tutorial&quot;,
+           edir=&quot;exercises&quot;)
+
+
+
+# setwd(&quot;~/&lt;root of r-exams project&gt;&quot;)
+library(&quot;exams&quot;)
+set.seed(2023-05-16)
+exams2moodle(&quot;exercises/ttest.Rmd&quot;, 
+             n = 1, 
+             name = &quot;r-exams-tutorial&quot;,
+             edir=&quot;exercises&quot;,
+             dir=&quot;output&quot;)
+  ## This yields the file R-exams.xml that can be imported into Moodle.</code></pre>
+</div>
+<div id="numerical" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> numerical<a href="moodle-and-exams.html#numerical" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The tradicional numeric value input, in Moodle.</p>
+<p>View example <a href="https://www.r-exams.org/templates/deriv/">deriv: Product Rule for Derivatives</a></p>
+<pre><code>Meta-information
+================
+extype: num
+exsolution:  r fmt(res) 
+exname: derivative exp
+extol: 0.01</code></pre>
+<p>What does <code>exams::fmt()</code>? Moodle does not recognize numeric representations like “1e-15”:</p>
+<pre><code>library(exams)
+&gt; fmt(1e-15)
+[1] &quot;0.00&quot;</code></pre>
+</div>
+<div id="shortanswer" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> shortanswer<a href="moodle-and-exams.html#shortanswer" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Exact word: Participant should introduce a word or small sentence to be automatically checked</p>
+<p>Small Essays: some exercise authors can use this for participant to introduce small essays but it gives a little of extra work in Moodle!</p>
+<p>View example <a href="https://www.r-exams.org/assets/posts/2017-08-14-function//function.Rmd">function: String Question about R Functions</a></p>
+<pre><code>Meta-information
+================
+extype: string
+exsolution:  r fun 
+exname: R functions</code></pre>
+<p>In the example, the variable <code>fun</code> is a word calculated in code and is the solution.</p>
+</div>
+<div id="cloze-explicit-answerlist" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> cloze (explicit Answerlist)<a href="moodle-and-exams.html#cloze-explicit-answerlist" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><code>cloze</code> is a question type that combines numerical, schoice, mchoice, shortanswer, true/false.</p>
+<p>View example <a href="https://www.r-exams.org/templates/lm/">lm: Simple Linear Regression (with CSV Data)</a></p>
+<p>The first 3 items are for a <code>schoice</code> question and the last item is a numerical question (declared in meta-information).</p>
+<pre><code>Question
+========
+Using the data provided in [regression.csv](regression.csv) estimate a linear regression of
+`y` on `x` and answer the following questions.
+
+Answerlist
+----------
+* `x` and `y` are not significantly correlated
+* `y` increases significantly with `x`
+* `y` decreases significantly with `x`
+* Estimated slope with respect to `x`:</code></pre>
+<p>The interpretation of each item is given in <code>exclozetype</code>:</p>
+<pre><code>Meta-information
+================
+exname: Linear regression
+extype: cloze
+exsolution:  r mchoice2string(bsol) | r fmt(bhat, 3) 
+exclozetype: schoice|num
+extol: 0.01</code></pre>
+<ul>
+<li><code>exclozetype: schoice|num</code> declares question type of items in <code>Answerlist</code></li>
+<li><code>exsolution:  r mchoice2string(bsol) | r fmt(bhat, 3)</code>
+<ul>
+<li>are the solutions. For example, after call to <code>mchoice2string()</code> and <code>fmt()</code>:</li>
+<li><code>exsolution: 0100|1.34</code></li>
+</ul></li>
+</ul>
+</div>
+<div id="cloze-calculated-answerlist-and-marks" class="section level2 hasAnchor" number="3.6">
+<h2><span class="header-section-number">3.6</span> cloze (calculated Answerlist and “##” marks)<a href="moodle-and-exams.html#cloze-calculated-answerlist-and-marks" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>“cloze” question with use of placeholders like <code>##ANSWER1##</code> in combination with meta-information.</p>
+<ul>
+<li><p><a href="https://www.r-exams.org/templates/fourfold2/">fourfold2: Fourfold Table (Flexible Formatting)</a></p>
+<p>Question
+========</p>
+<p>An industry-leading company seeks a qualified candidate for a management position.
+A management consultancy carries out an assessment center which concludes in making
+a positive or negative recommendation for each candidate: From previous assessments they know that
+of those candidates that are actually eligible for the position (event <span class="math inline">\(E\)</span>) <span class="math inline">\(r per * 100\%\)</span>
+get a positive recommendation (event <span class="math inline">\(R\)</span>). However, out of those candidates that are not eligible
+<span class="math inline">\(r pnenr * 100\%\)</span> get a negative recommendation. Overall, they know that only
+<span class="math inline">\(r pe * 100\%\)</span> of all job applicants are actually eligible.</p>
+<p>What is the corresponding fourfold table of the joint probabilities? (Specify all entries in percent.)</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"></th>
+<th align="center"><span class="math inline">\(R\)</span></th>
+<th align="center"><span class="math inline">\(\overline{R}\)</span></th>
+<th align="center">sum</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\(E\)</span></td>
+<td align="center">##ANSWER1##%</td>
+<td align="center">##ANSWER3##%</td>
+<td align="center">##ANSWER7##%</td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(\overline{E}\)</span></td>
+<td align="center">##ANSWER2##%</td>
+<td align="center">##ANSWER4##%</td>
+<td align="center">##ANSWER8##%</td>
+</tr>
+<tr class="odd">
+<td align="center">sum</td>
+<td align="center">##ANSWER5##%</td>
+<td align="center">##ANSWER6##%</td>
+<td align="center">##ANSWER9##%</td>
+</tr>
+</tbody>
+</table>
+<pre><code>#line up =&gt;{r questionlist, echo = FALSE, results = &quot;asis&quot;}
+answerlist(rep(&quot;&quot;, length(sol)), markup = &quot;markdown&quot;)</code></pre></li>
+</ul>
+<p>What is <code>answerlist(...)</code>? It returns markdown text has if the author types several <code>*</code>-items:</p>
+<pre><code>&gt; questions &lt;- list(a=&quot;aaa&quot;, b=&quot;bbb&quot;)
+&gt; answerlist(unlist(questions), markup = &quot;markdown&quot;)
+Answerlist
+----------
+* aaa
+* bbb</code></pre>
+<p>In meta-information <code>exclozetype</code> has 9 numerical declarations:</p>
+<pre><code>Meta-information
+================
+extype: cloze
+exsolution:  r paste(sol, collapse = &quot;|&quot;) 
+exclozetype: num|num|num|num|num|num|num|num|num
+exname: fourfold
+extol: 0.05
+exextra[numwidth,logical]: TRUE</code></pre>
+<ul>
+<li><p><code>exsolution:  r paste(sol, collapse = "|")</code> could produce something like “100.3|20.45….”</p></li>
+<li><p><code>exextra[numwidth,logical]: TRUE</code> – (to be found in literature!)</p></li>
+<li><p>In <code>exams2moodle()</code> we support a couple of Moodle-specific <code>exextra</code> options, namely some detailed formatting of “essay” type questions. All supported options can be found in the “essayreg” exercise template.</p></li>
+<li><p>Additionally, it’s possible to set the <code>numwidth</code> and <code>stringwidth</code> arguments from <code>exams2moodle()</code> also via <code>exextra</code> options. See the “fourfold2” exercise template for a worked example.</p></li>
+</ul>
+<p><em>References</em> <a href="https://stackoverflow.com/questions/73713203/possible-meta-informations-in-r-exams">Possible meta-informations in R/exams</a></p>
+</div>
+<div id="special-moodle-instructions" class="section level2 hasAnchor" number="3.7">
+<h2><span class="header-section-number">3.7</span> special moodle instructions<a href="moodle-and-exams.html#special-moodle-instructions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Instead of setting <code>exshuffle</code> to TRUE (or a number) which does the shuffling on the R side, it is also possible to do the shuffling in Moodle by selecting a <code>cloze_mchoice_display</code> that includes shuffling, e.g., <code>MULTICHOICE_S</code> or <code>MULTICHOICE_VS</code> etc.</p>
+<pre><code>    exams2moodle(questions,
+             name = &quot;exameXPTO&quot;, 
+             cloze = list(cloze_mchoice_display = &quot;MULTICHOICE_VS&quot;), 
+             envir =.GlobalEnv)</code></pre>
+<p>where</p>
+<ul>
+<li><code>cloze = list(cloze_mchoice_display = "MULTICHOICE_VS")</code> – choosen moodle instruction</li>
+<li><code>envir =.GlobalEnv</code> – use context variables (used in the Question) stored in user’s workspace (“The global environment .GlobalEnv, more often known as the user’s workspace, is the first item on the search path”)</li>
+</ul>
+<p><em>References</em> <a href="https://stackoverflow.com/questions/73713203/possible-meta-informations-in-r-exams">Possible meta-informations in R/exams</a></p>
+</div>
+<div id="restrictions-in-moodle-cloze" class="section level2 hasAnchor" number="3.8">
+<h2><span class="header-section-number">3.8</span> restrictions in moodle “cloze”<a href="moodle-and-exams.html#restrictions-in-moodle-cloze" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The <strong>essays</strong> or <strong>file uploads</strong> are not currently supported in Moodle <strong>cloze type</strong> exercises!</p>
+<p>View example <a href="https://www.r-exams.org/templates/essayreg2/">essayreg2.Rmd</a></p>
+<p>Moodle does not handle when Meta-information combines other types with “essay” or “file” types as case of:</p>
+<pre><code>Meta-information
+================
+exname: Linear regression
+extype: cloze
+exsolution: OLS|01001| r fmt(ahat, 3) | r fmt(bhat, 3) | r mchoice2string(bsol |nil|nil
+exclozetype: string|mchoice|num|num|schoice|essay|file
+extol: 0.01</code></pre>
+<p>Warnings for Moodle:</p>
+<ul>
+<li>note <code>essay|file</code> in meta-information.</li>
+</ul>
+<p>However, R-exams can also output for PDF, HTML and OLAT formats with this question types.</p>
+<p>Instruction <code>exams2html()</code> works but not <code>exams2moodle()</code>:</p>
+<pre><code>&gt; library(exams)
+&gt; setwd(&quot;where exercises are&quot;)
+&gt; exams2html(&quot;essayreg.Rmd&quot;)
+&gt; exams2moodle(&quot;essayreg.Rmd&quot;)
+Error in moodlequestion[[type]](exm[[i]][[j]]) : 
+  essays or file uploads are not currently supported in Moodle cloze type exercises!</code></pre>
+</div>
+<div id="essayfile-question-type-in-moodle" class="section level2 hasAnchor" number="3.9">
+<h2><span class="header-section-number">3.9</span> essay/file question type in Moodle<a href="moodle-and-exams.html#essayfile-question-type-in-moodle" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>They share the same code in Moodle.</p>
+<ul>
+<li>this section need work! Only file question is working.</li>
+</ul>
+<p>Warning: in r-exams the <code>extype: string</code> should be declared in meta-information (there is no “extype: file” or “extype: essay”!)</p>
+<p><em>Reference</em>. <a href="https://www.r-exams.org/templates/essayreg/">essayreg.Rmd</a></p>
+<div id="essay-question" class="section level3 hasAnchor" number="3.9.1">
+<h3><span class="header-section-number">3.9.1</span> essay question<a href="moodle-and-exams.html#essay-question" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><em>Example of an essay</em>. Do you think the assumptions of the Gauss-Markov theorem are fulfilled? What are the consequences?</p>
+<ul>
+<li>In <code>exams2moodle()</code> we support a couple of Moodle-specific <code>exextra</code> options, namely some detailed formatting of “essay” type questions. All supported options can be found in the <code>essayreg</code> exercise template.</li>
+<li>An essay, in Word, can also be uploaded using file question type.</li>
+</ul>
+</div>
+<div id="file-question" class="section level3 hasAnchor" number="3.9.2">
+<h3><span class="header-section-number">3.9.2</span> file question<a href="moodle-and-exams.html#file-question" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><em>Example of file request</em>. Please upload your code script that reads the data, fits the regression model, extracts the quantities of interest, and generates the diagnostic plots.</p>
+</div>
+<div id="both-file-and-essay" class="section level3 hasAnchor" number="3.9.3">
+<h3><span class="header-section-number">3.9.3</span> both file and essay<a href="moodle-and-exams.html#both-file-and-essay" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><em>Example of an essay and file in same moodle question</em>.</p>
+<ul>
+<li><p>Do you think the assumptions of the Gauss-Markov theorem are fulfilled? What are the consequences?</p></li>
+<li><p>Please upload your code script that reads the data, fits the regression model, extracts the quantities of interest, and generates the diagnostic plots</p>
+<p>exams2moodle(c(“essayreg_moodle_essay.Rmd”,“essayreg_moodle_file.Rmd”),
+edir=“exercises”,
+dir=“output”)</p></li>
+</ul>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="exams.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="Bookdown.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/jpcaveiro/r-tutorials/edit/master/04-moodle.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["r-tutorial.pdf", "r-tutorial.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
